@@ -1,5 +1,9 @@
 rootProject.name = "mvp"
 
+pluginManagement {
+    includeBuild("plugin")
+}
+
 include(":app")
-include(":web")
-include(":telegram")
+include(":app:web")
+include(":app:telegram")
