@@ -1,16 +1,16 @@
 package org.ctnb.back.app.tgrm;
 
+import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.ResponseEntity;
 
-@SpringBootApplication
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class BaseTest {
-    protected static final String ROOT_API = "/tgrm/v1/";
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = TestApplication.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class BaseControllerTest {
+    protected static final String ROOT_API = "/api/tgrm";
 
     @LocalServerPort
     private int port;
