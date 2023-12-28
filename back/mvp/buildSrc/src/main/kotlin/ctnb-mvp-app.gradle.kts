@@ -11,5 +11,5 @@ tasks.jar {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation(Dependencies.SPRING_BOOT)
 }

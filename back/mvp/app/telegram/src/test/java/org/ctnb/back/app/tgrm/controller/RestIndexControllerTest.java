@@ -1,6 +1,6 @@
 package org.ctnb.back.app.tgrm.controller;
 
-import org.ctnb.back.app.tgrm.BaseTest;
+import org.ctnb.back.app.tgrm.BaseControllerTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class RestIndexControllerTest extends BaseTest {
+class RestIndexControllerTest extends BaseControllerTest {
 
     private static final String STATS = ROOT_API + "/stats";
     private static final String STATS_BY_ID = ROOT_API + "/stats/{id}";

@@ -1,7 +1,9 @@
 plugins {
-    id("ctnb-mvp-module")
+    id("ctnb-mvp-endpoint")
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+    implementation(Dependencies.SPRING_BOOT_THYMELEAF)
+
+    implementation(project(":app:domain"))
 }

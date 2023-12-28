@@ -13,7 +13,7 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@RequestMapping("/tgrm/v1/")
+@RequestMapping("/api/tgrm")
 public class RestIndexController {
 
     @GetMapping(value = "/stats", produces = MediaType.APPLICATION_JSON_VALUE)
