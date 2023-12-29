@@ -22,4 +22,7 @@ object Dependencies {
     // MapStruct
     const val MAP_STRUCT = "org.mapstruct:mapstruct:${Versions.MAP_STRUCT_V}"
     const val MAP_STRUCT_PROC = "org.mapstruct:mapstruct-processor:${Versions.MAP_STRUCT_V}"
+
+    // Telegram
+    const val TELEGRAM = "org.telegram:telegrambots:${Versions.TELEGRAM_V}"
 }

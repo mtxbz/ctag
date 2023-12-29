@@ -4,4 +4,6 @@ plugins {
 
 dependencies {
     implementation(project(":app:domain"))
+
+    implementation(Dependencies.TELEGRAM)
 }
