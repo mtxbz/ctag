@@ -4,4 +4,5 @@ object Versions {
     const val MAP_STRUCT_V = "1.5.5.Final"
     const val LOMBOK_MAP_STRUCT_V = "0.2.0"
     const val TELEGRAM_V = "6.8.0"
+    const val JAXB_V = "2.3.1"
 }

@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+
+telegram:
+  bot:
+    username: test
+    token: test_token
+
+logging:
+  level:
+    org:
+      springframework:
+        cache: debug

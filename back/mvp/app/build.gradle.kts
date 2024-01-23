@@ -3,6 +3,6 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":app:web"))
-    implementation(project(":app:telegram"))
+    implementation(project(":app:endpoint:web"))
+    implementation(project(":app:endpoint:telegram"))
 }

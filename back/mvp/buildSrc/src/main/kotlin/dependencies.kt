@@ -24,5 +24,6 @@ object Dependencies {
     const val MAP_STRUCT_PROC = "org.mapstruct:mapstruct-processor:${Versions.MAP_STRUCT_V}"
 
     // Telegram
-    const val TELEGRAM = "org.telegram:telegrambots:${Versions.TELEGRAM_V}"
+    const val TELEGRAM = "org.telegram:telegrambots-spring-boot-starter:${Versions.TELEGRAM_V}"
+    const val JAXB = "javax.xml.bind:jaxb-api:${Versions.JAXB_V}"
 }
