@@ -1,0 +1,100 @@
+name: Deploy Monolith
+run-name: Deploy Monolith
+
+on:
+  workflow_dispatch:
+    inputs:
+      monolith:
+        description: 'Deploy Monolith'
+        required: false
+        type: boolean
+        default: true
+
+#env:
+#  FOLDER: ./notificator
+#  IMAGE_NAME: notificator
+#  REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#  DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+#  DEPLOY_LOGIN: ${{ secrets.DEPLOY_LOGIN }}
+#  DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+#  DEPLOY_NETWORK: ${{ secrets.DEPLOY_NETWORK }}
+#  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+#  NOTIFICATOR_DB_CONN_STRING: ${{ secrets.NOTIFICATOR_DB_CONN_STRING }}
+
+jobs:
+  deploy_monolith:
+    name: Deploy Monolith
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+#      - name: Build
+#        run: |
+#          docker build \
+#            --progress plain \
+#            --tag $IMAGE_NAME \
+#            --label "runnumber=${GITHUB_RUN_ID}" \
+#            ./${{ env.FOLDER }}
+#
+#      - name: Deploy
+#        id: deploy
+#        run: |
+#          echo "${{ env.REPO_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+#
+#          IMAGE_ID=ghcr.io/${{ github.repository }}/$IMAGE_NAME
+#
+#          # Change all uppercase to lowercase
+#          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+#
+#          # Strip git ref prefix from version
+#          VERSION=$(date +'%Y%m%d%H%M')
+#
+#          # echo IMAGE_ID=$IMAGE_ID
+#          # echo VERSION=$VERSION
+#
+#          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+#          docker push $IMAGE_ID:$VERSION
+#
+#          echo "::notice::Deployed: $IMAGE_ID:$VERSION"
+#          echo "image_link=$IMAGE_ID:$VERSION" >> $GITHUB_OUTPUT
+#
+#      - name: Upload
+#        uses: appleboy/scp-action@master
+#        with:
+#          host: ${{ env.DEPLOY_HOST }}
+#          username: ${{ env.DEPLOY_LOGIN }}
+#          key: ${{ env.DEPLOY_SSH_KEY }}
+#          target: ./
+#          source: "${{ env.FOLDER }}/docker-compose.prod.yml"
+#
+#      - name: Delivery
+#        uses: appleboy/ssh-action@master
+#        with:
+#          host: ${{ env.DEPLOY_HOST }}
+#          username: ${{ env.DEPLOY_LOGIN }}
+#          key: ${{ env.DEPLOY_SSH_KEY }}
+#          script: |
+#            docker network ls |
+#              grep ${{ env.DEPLOY_NETWORK }} > /dev/null || docker network create ${{ env.DEPLOY_NETWORK }}
+#
+#            echo "${{ env.REPO_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+#
+#            IMAGE=${{ steps.deploy.outputs.image_link }} \
+#            NETWORK=${{ env.DEPLOY_NETWORK }} \
+#            TELEGRAM_BOT_TOKEN=${{ env.TELEGRAM_BOT_TOKEN }} \
+#            NOTIFICATOR_DB_CONN_STRING=${{ env.NOTIFICATOR_DB_CONN_STRING }} \
+#            docker compose -f ${{ env.FOLDER }}/docker-compose.prod.yml \
+#              up \
+#              --force-recreate \
+#              --build \
+#              -d
+#
+#            # docker rmi $(docker images -q)
+#            # docker system prune --volumes -f
+#
+#            echo "::notice::Delivered: $IMAGE"
